@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaksi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <center>
+            <h1>JAN'S FOOTWEAR</h1>
+            <marquee><h3>SPESIALIS SEPATU "HIGH QUALITY"</h3></marquee>
+        </center>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Produk</a></li>
+            <li><a href="transaksi.html">Transaksi</a></li>
+            <li><a href="invoice.html">Invoice</a></li>
+            <li><a href="kontak.html">Kontak Kami</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main class="form-transaksi">
+            <center><h2>Formulir Transaksi</h2></center>
+            <form id="transaksiForm">
+                <label for="nama">Nama:</label><br>
+                <input type="text" id="nama" name="nama" required><br><br>
+                <label for="alamat">Alamat:</label><br>
+                <textarea id="alamat" name="alamat" required></textarea><br><br>
+                <label for="produk">Produk:</label><br>
+                <div>
+                    <input type="radio" id="p1" name="Type" value="OC-FORTUN" data-price="9000000">
+                    <label for="p1">OC-FORTUN</label>
+                </div>
+                <div>
+                    <input type="radio" id="p2" name="Type" value="DIKARS" data-price="3000000">
+                    <label for="p2">DIKARS</label>
+                </div>
+                <div>
+                    <input type="radio" id="p3" name="Type" value="DAMANS" data-price="7500000">
+                    <label for="p3">DAMANS</label>
+                </div>
+                <div>
+                    <input type="radio" id="p4" name="Type" value="ANAICHI LOW" data-price="1800000">
+                    <label for="p4">ANAICHI LOW</label>
+                </div>
+                <div>
+                    <input type="radio" id="p5" name="Type" value="BOMBAGE" data-price="2000000">
+                    <label for="p5">BOMBAGE</label>
+                </div><br>
+                <label for="ukuran">Ukuran:</label><br>
+                <input type="text" id="ukuran" name="ukuran" required><br><br>
+                
+                <label for="date">Tanggal Pemesanan:</label><br>
+                <input type="date" id="date" name="date" required><br><br>
+                <button type="button" onclick="buatPesanan()">BELI</button>
+                <button type="reset">ULANG</button>
+            </form>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const produk = urlParams.get('produk');
+            const harga = urlParams.get('harga');
+
+            if (produk && harga) {
+                const radioInput = document.querySelector(`input[value="${produk}"]`);
+                if (radioInput) {
+                    radioInput.checked = true;
+                    radioInput.setAttribute('data-price', harga);
+                }
+            }
+        });
+
+        function buatPesanan() {
+            const nama = document.getElementById("nama").value.trim();
+            const alamat = document.getElementById("alamat").value.trim();
+            const tanggalPemesanan = document.getElementById("date").value;
+            const ukuran = document.getElementById("ukuran").value.trim();
+
+            if (!nama || !alamat || !tanggalPemesanan) {
+                alert("Silakan lengkapi semua data.");
+                return;
+            }
+
+            const produk = document.querySelector('input[name="Type"]:checked');
+            if (!produk) {
+                alert("Silakan pilih jenis sepatu.");
+                return;
+            }
+
+            const produkNama = produk.value;
+            const harga = produk.getAttribute('data-price');
+            const tanggalPengambilan = new Date(tanggalPemesanan);
+            tanggalPengambilan.setMonth(tanggalPengambilan.getMonth() + 1);
+            const tanggalPengambilanStr = tanggalPengambilan.toISOString().split('T')[0];
+
+            const params = new URLSearchParams({
+                nama: nama,
+                alamat: alamat,
+                produk: produkNama,
+                ukuran: ukuran,
+                harga: harga,
+                tanggalPemesanan: tanggalPemesanan,
+                tanggalPengambilan: tanggalPengambilanStr
+            });
+
+            window.location.href = `invoice.html?${params.toString()}`;
+        }
+    </script>
+    <footer>
+        <center>@COPYRIGHT JAN'S</center>
+    </footer>
+</body>
+</html>

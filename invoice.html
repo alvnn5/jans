@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body### invoice.html
+Pada halaman ini, data dari URL akan digunakan untuk menampilkan informasi invoice.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <center>
+            <h1>JAN'S FOOTWEAR</h1>
+            <marquee><h3>SPESIALIS SEPATU "HIGH QUALITY"</h3></marquee>
+        </center>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Produk</a></li>
+            <li><a href="transaksi.html">Transaksi</a></li>
+            <li><a href="invoice.html">Invoice</a></li>
+            <li><a href="kontak.html">Kontak Kami</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main class="invoice">
+            <center>
+                <h2>Invoice</h2>
+                <table border="1" cellspacing="5" cellpadding="5" width="100%" align="center" bordercolor="#EEEEEE">
+                    <tr>
+                        <th><strong>Nama</strong></th>
+                        <th><strong>Alamat</strong></th>
+                        <th><strong>Produk</strong></th>
+                        <th><strong>Ukuran</strong></th>
+                        <th><strong>Total Pembayaran</strong></th>
+                        <th><strong>Tanggal Pemesanan</strong></th>
+                        <th><strong>Tanggal Pengambilan</strong></th>
+                    </tr>
+                    <tr>
+                        <td><span id="invoiceNama"></span></td>
+                        <td><span id="invoiceAlamat"></span></td>
+                        <td><span id="invoiceProduk"></span></td>
+                        <td><span id="invoiceUkuran"></span></td>
+                        <td><span id="invoiceTotal"></span></td>
+                        <td><span id="invoiceTanggal"></span></td>
+                        <td><span id="invoicePickupDate"></span></td>
+                    </tr>
+                </table>
+            </center>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('invoiceNama').textContent = urlParams.get('nama');
+            document.getElementById('invoiceAlamat').textContent = urlParams.get('alamat');
+            document.getElementById('invoiceProduk').textContent = urlParams.get('produk');
+            document.getElementById('invoiceUkuran').textContent = urlParams.get('ukuran');
+            document.getElementById('invoiceTotal').textContent = 'Rp ' + new Intl.NumberFormat('id-ID').format(urlParams.get('harga'));
+            document.getElementById('invoiceTanggal').textContent = urlParams.get('tanggalPemesanan');
+            document.getElementById('invoicePickupDate').textContent = urlParams.get('tanggalPengambilan');
+        });
+    </script>
+    <footer>
+        <center>@COPYRIGHT JAN'S</center>
+    </footer>
+</body>
+</html>

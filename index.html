@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <center>
+            <h1>JAN'S FOOTWEAR</h1>
+            <marquee><h3>SPESIALIS SEPATU "HIGH QUALITY"</h3></marquee>
+        </center>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Produk</a></li>
+            <li><a href="transaksi.html">Transaksi</a></li>
+            <li><a href="invoice.html">Invoice</a></li>
+            <li><a href="kontak.html">Kontak Kami</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <aside class="left">
+            <center>
+                BENEFIT
+            </center>
+            <hr>
+            <ul>
+                <li>GRATIS pengiriman
+                    </li>
+                    <li>Sertifikat Resmi
+                    </li>
+                    <li>Biaya pembersihan 
+                    </li>
+                    <li>DISKON 90% bagi pengguna KTM UNIKOM
+                    </li>
+                    <li>BOX Premium
+                    </li>
+                    <li>Free kaos kaki CK
+                    </li>
+                    <li>Free Costume GIFT Text
+                    </li>
+                    <li>3 pasang tali sepatu
+                    </li>
+            </ul>
+        
+            <center>
+                BENEFIT
+            </center>
+            <hr>
+            <ul>
+                <li>GRATIS pengiriman
+                    </li>
+                    <li>Sertifikat Resmi
+                    </li>
+                    <li>Biaya pembersihan 
+                    </li>
+                    <li>DISKON 90% bagi pengguna KTM UNIKOM
+                    </li>
+                    <li>BOX Premium
+                    </li>
+                    <li>Free kaos kaki CK
+                    </li>
+                    <li>Free Costume GIFT Text
+                    </li>
+                    <li>3 pasang tali sepatu
+                    </li>
+            </ul>
+
+            <center>
+                Bahan Dan Kualitas
+            </center>
+            <hr>
+            <ul>
+                Setiap sepatu di LeatherStep Shoes dibuat dari kulit asli berkualitas tinggi, seperti kulit sapi, kulit domba, dan kulit kambing. Kami memastikan setiap sepatu diproduksi dengan standar kontrol kualitas yang ketat untuk memberikan kenyamanan dan daya tahan maksimal.
+            </ul>
+
+            <center>
+                Pelayanan Pelanggan
+            </center>
+            <hr>
+            <ul>
+                Kami percaya bahwa kepuasan pelanggan adalah prioritas utama. Oleh karena itu, kami menyediakan layanan purna jual yang memadai, seperti garansi produk, perbaikan sepatu, dan konsultasi perawatan kulit. Tim layanan pelanggan kami siap membantu Anda dengan setiap pertanyaan dan kebutuhan Anda.
+            </ul>
+            <center>
+                Inovasi dan Desain
+            </center>
+            <hr>
+            <ul>
+                LeatherStep Shoes selalu mengikuti tren mode terkini tanpa mengorbankan kualitas. Desainer kami bekerja keras untuk menghadirkan model sepatu yang stylish dan modern, namun tetap mempertahankan ciri khas elegan dan klasik dari kulit.
+            </ul>
+            <center>
+                Promosi dan Diskon
+            </center>
+            <hr>
+            <ul>
+                Kami secara berkala menawarkan berbagai promo menarik dan diskon untuk pelanggan setia. Pastikan Anda mengikuti media sosial kami dan berlangganan newsletter untuk mendapatkan informasi terbaru.
+            </ul>
+        </aside>
+        <main class="content">
+            <center>
+                <h2>SEPATU KULIT IMPOR</h2>
+                <hr>
+                <div class="P1">
+                    <img src="img/foot 1 (1).png"width="400" height="300" alt="img">
+                    <img src="img/foot 1 (2).png"width="400" height="300" alt="img">
+                    <h3>OC-FORTUN</h3>
+                    <p>Harga: Rp9.000.000</p>
+                    <button onclick="preorder('OC-FORTUN', 9000000)">PREORDER</button><br><br>
+                </div>
+                <div class="P2">
+                    <img src="img/foot 2 (1).png" width="400" height="300" alt="img">
+                    <img src="img/foot 2 (2).png"width="400" height="300" alt="img">
+                    <h3>DIKARS</h3>
+                    <p>Harga: Rp3.000.000</p>
+                    <button onclick="preorder('DIKARS', 3000000)">PREORDER</button><br><br>
+                </div>
+                <div class="P3">
+                    <img src="img/foot 3 (1).png" width="400" height="300" alt="img">
+                    <h3>DAMANS</h3>
+                    <p>Harga: Rp7.500.000</p>
+                    <button onclick="preorder('DAMANS', 7500000)">PREORDER</button><br><br>
+                </div>
+                <div class="P4">
+                    <img src="img/foot 3 (2).png" width="400" height="300" alt="img">
+                    <h3>ANAICHI LOW</h3>
+                    <p>Harga: Rp1.800.000</p>
+                    <button onclick="preorder('ANAICHI LOW', 1800000)">PREORDER</button><br><br>
+                </div>
+                <div class="P5">
+                    <img src="img/foot 3 (3).png" width="400" height="300" alt="img">
+                    <h3>BOMBAGE</h3>
+                    <p>Harga: Rp2.000.000</p>
+                    <button onclick="preorder('BOMBAGE', 2000000)">PREORDER</button><br><br>
+                </div>
+            </center>
+        </main>
+    </div>
+    <script>
+        function preorder(produk, harga) {
+            const urlParams = new URLSearchParams({
+                produk: produk,
+                harga: harga
+            });
+            window.location.href = `transaksi.html?${urlParams.toString()}`;
+        }
+    </script>
+    <footer>
+        <center>@COPYRIGHT JAN'S</center>
+    </footer>
+</body>
+</html>
